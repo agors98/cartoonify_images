@@ -1,5 +1,6 @@
 import tkinter as tk
-from commands import open_image
+from commands import open_image, cartoonify
+from PIL import ImageTk, Image
 
 class Gui(tk.Tk):
     width = 1000
@@ -33,6 +34,33 @@ class Gui(tk.Tk):
             rely=0.2,
         )
 
+        self.after_canvas = tk.Canvas(
+            self,
+            bg='#C89595',
+            width=0.3*self.width,
+            height=0.3*self.width,
+        )  
+        self.after_canvas.place(
+            relx=0.65,
+            rely=0.2,
+        )
+
+
+        # labels
+        self.arrow_img = ImageTk.PhotoImage(Image.open(
+            r'resources\arrow.png').resize((int(0.2*self.width), int(0.1*self.width)))
+        )
+        self.arrow_label = tk.Label(
+            self,
+            bg='#DDBEBE',
+            image=self.arrow_img,
+        )
+        self.arrow_label.place(
+            relx=0.4,
+            rely=0.4,
+        )
+
+
         # buttons
         self.open_button = tk.Button(
             self,
@@ -49,7 +77,23 @@ class Gui(tk.Tk):
             relwidth=0.15,
         )
 
+        self.cartoon_button = tk.Button(
+            self,
+            bg='#6C4A4A',
+            fg='#EDEDED',
+            font='Helvetica 12 bold',
+            text='Cartoonify',
+            command=lambda: cartoonify(self),
+        )
+        self.cartoon_button.place(
+            relx=0.425,
+            rely=0.7,
+            relheight=0.07,
+            relwidth=0.15,
+        )
+
         self.mainloop()
+
 
 if __name__ == "__main__":
     gui = Gui()

@@ -20,8 +20,16 @@ def open_image(self):
     )
 
 
-def cartoonify():
-    pass
+def cartoonify(self):
+    # TODO add generating
+    self.after_img = self.before_img
+    self.after_img_tk = ImageTk.PhotoImage(self.after_img)
+    self.after_canvas.create_image(
+        0,
+        0,
+        image=self.after_img_tk,
+        anchor='center'
+    )
 
 
 def save_image():
