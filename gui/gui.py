@@ -1,4 +1,5 @@
 import tkinter as tk
+from commands import open_image
 
 class Gui(tk.Tk):
     width = 1000
@@ -19,6 +20,34 @@ class Gui(tk.Tk):
         self.iconbitmap('resources/icon.ico')
         self.resizable(False, False)
         self.geometry("{}x{}+{}+{}".format(*window_size))
+
+        # canvases
+        self.before_canvas = tk.Canvas(
+            self,
+            bg='#C89595',
+            width=0.3*self.width,
+            height=0.3*self.width,
+        )  
+        self.before_canvas.place(
+            relx=0.05,
+            rely=0.2,
+        )
+
+        # buttons
+        self.open_button = tk.Button(
+            self,
+            bg='#6C4A4A',
+            fg='#EDEDED',
+            font='Helvetica 12 bold',
+            text='Open an image',
+            command=lambda: open_image(self),
+        )
+        self.open_button.place(
+            relx=0.125,
+            rely=0.85,
+            relheight=0.07,
+            relwidth=0.15,
+        )
 
         self.mainloop()
 
