@@ -1,5 +1,5 @@
 import tkinter as tk
-from commands import open_image, cartoonify
+from commands import open_image, cartoonify, save_image
 from PIL import ImageTk, Image
 
 class Gui(tk.Tk):
@@ -88,6 +88,21 @@ class Gui(tk.Tk):
         self.cartoon_button.place(
             relx=0.425,
             rely=0.7,
+            relheight=0.07,
+            relwidth=0.15,
+        )
+
+        self.save_button = tk.Button(
+            self,
+            bg='#6C4A4A',
+            fg='#EDEDED',
+            font='Helvetica 12 bold',
+            text='Save an image',
+            command=lambda: save_image(self),
+        )
+        self.save_button.place(
+            relx=0.725,
+            rely=0.85,
             relheight=0.07,
             relwidth=0.15,
         )

@@ -32,5 +32,15 @@ def cartoonify(self):
     )
 
 
-def save_image():
-    pass
+def save_image(self):
+    filename = fd.asksaveasfile(
+        title='Choose an image',
+        filetypes=(
+            ('Image files', '*.jpg'),
+        ),
+        mode='w', 
+        defaultextension='*.jpg',
+    )
+    if not filename:
+        return
+    self.after_img.save(filename)
