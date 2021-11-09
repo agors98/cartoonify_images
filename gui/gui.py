@@ -50,6 +50,18 @@ class Gui(tk.Tk):
 
 
         # labels
+        self.input_label = tk.Label(
+            self,
+            text='INPUT',
+            bg='#DDBEBE',
+            fg='#6C4A4A',
+            font='Helvetica 24 bold',
+        )
+        self.input_label.place(
+            relx=0.05,
+            rely=0.11,
+            relwidth=0.3,
+        )
         self.arrow_img = ImageTk.PhotoImage(Image.open(
             r'resources\arrow.png').resize((int(0.2*self.width), int(0.1*self.width)))
         )
@@ -61,6 +73,18 @@ class Gui(tk.Tk):
         self.arrow_label.place(
             relx=0.4,
             rely=0.4,
+        )
+        self.output_label = tk.Label(
+            self,
+            text='OUTPUT',
+            bg='#DDBEBE',
+            fg='#6C4A4A',
+            font='Helvetica 24 bold',
+        )
+        self.output_label.place(
+            relx=0.65,
+            rely=0.11,
+            relwidth=0.3,
         )
 
 
