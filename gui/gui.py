@@ -5,6 +5,9 @@ from PIL import ImageTk, Image
 class Gui(tk.Tk):
     width = 1000
     height = 500
+    opened = False
+    cartoonified = False
+
     
     def __init__(self):
         super().__init__()
